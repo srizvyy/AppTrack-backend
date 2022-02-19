@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2022_02_19_080828) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "applications", force: :cascade do |t|
     t.string "company"
     t.string "position"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2022_02_19_080828) do
     t.datetime "time"
     t.boolean "received"
     t.text "comment"
-    t.integer "application_id"
+    t.bigint "application_id"
     t.index ["application_id"], name: "index_communications_on_application_id"
   end
 
